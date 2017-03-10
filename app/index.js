@@ -3,7 +3,7 @@ import { render } from 'react-dom'
 import { Match, BrowserRouter } from 'react-router'
 import { Provider } from 'react-redux'
 import store from './store'
-import AsyncRoute from './AsyncRoute'
+import AsyncRoute from './containers/AsyncRoute'
 import preload from '../public/data.json'
 
 if (global) {
