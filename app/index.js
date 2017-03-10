@@ -3,7 +3,7 @@ import { render } from 'react-dom'
 import { Match, BrowserRouter } from 'react-router'
 import { Provider } from 'react-redux'
 import store from './store'
-import AsyncRoute from './containers/AsyncRoute'
+import AsyncRoute from './components/AsyncRoute'
 import preload from '../public/data.json'
 
 if (global) {
@@ -22,14 +22,20 @@ render(
         <Match
           pattern='/search'
           component={(props) => {
-            return <AsyncRoute props={Object.assign({shows: preload.shows}, props)} loadingPromise={System.import('./Search')} />
+            return <AsyncRoute
+              props={Object.assign({shows: preload.shows}, props)}
+              loadingPromise={System.import('./components/Search')}
+            />
           }}
         />
         <Match
           pattern='/details/:id'
           component={(props) => {
             const show = preload.shows.filter((show) => props.params.id === show.imdbID)
-            return <AsyncRoute props={Object.assign({show: show[0]}, props)} loadingPromise={System.import('./Details')} />
+            return <AsyncRoute
+              props={Object.assign({show: show[0]}, props)}
+              loadingPromise={System.import('./components/Details')}
+            />
           }}
         />
       </div>

@@ -1,12 +1,13 @@
 /* eslint-env node, jest */
 import React from 'react'
 import { Provider } from 'react-redux'
-import Search, { Unwrapped as UnwrappedSearch} from './Search'
-import ShowCard from './ShowCard'
-import store from './store'
-import { setSearchTerm } from './reducers'
 import { shallow, render } from 'enzyme'
 import { shallowToJson } from 'enzyme-to-json'
+
+import Search, { Unwrapped as UnwrappedSearch} from './Search'
+import ShowCard from './ShowCard'
+import store from '../store'
+import { setSearchTerm } from '../reducers'
 import preload from '../public/data.json'
 
 test('Search snapshot', () => {
