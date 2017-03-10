@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router'
 import { connect } from 'react-redux'
-import { setSearchTerm } from './actionCreators'
+import { setSearchTerm } from './reducers'
 const { func, bool, string } = React.PropTypes
 
 const Header = React.createClass({

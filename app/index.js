@@ -1,21 +1,23 @@
 import React from 'react'
-import { Match } from 'react-router'
+import { render } from 'react-dom'
+import { Match, BrowserRouter } from 'react-router'
 import { Provider } from 'react-redux'
 import store from './store'
 import AsyncRoute from './AsyncRoute'
 import preload from '../public/data.json'
+
 if (global) {
   global.System = { import () {} }
 }
 
-const App = () => {
-  return (
+render(
+  <BrowserRouter>
     <Provider store={store}>
       <div className='app'>
         <Match
           exactly
           pattern='/'
-          component={(props) => <AsyncRoute props={props} loadingPromise={System.import('./Landing')} />}
+          component={(props) => <AsyncRoute props={props} loadingPromise={System.import('./components/Landing')} />}
         />
         <Match
           pattern='/search'
@@ -32,7 +34,6 @@ const App = () => {
         />
       </div>
     </Provider>
-  )
-}
-
-export default App
+  </BrowserRouter>,
+  document.getElementById('app')
+)

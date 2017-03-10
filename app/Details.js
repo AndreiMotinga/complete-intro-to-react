@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { getOMDBDetails } from './actionCreators'
+import { getOMDBDetails } from './reducers'
 import Header from './Header'
 const { shape, string, func } = React.PropTypes
 
