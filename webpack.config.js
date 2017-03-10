@@ -2,7 +2,7 @@ const path = require('path')
 
 module.exports = {
   context: __dirname,
-  entry: './js/ClientApp.js',
+  entry: './app/ClientApp.js',
   devtool: 'cheap-module-source-map',
   output: {
     path: path.join(__dirname, '/public'),
@@ -49,7 +49,7 @@ module.exports = {
         test: /\.js?$/,
         loader: 'babel-loader',
         include: [
-          path.resolve('js'),
+          path.resolve('app'),
           path.resolve('node_modules/preact-compat/src')
         ]
       },
