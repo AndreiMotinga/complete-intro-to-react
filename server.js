@@ -10,7 +10,7 @@ const fs = require('fs')
 const port = 5050
 const baseTemplate = fs.readFileSync('./index.html')
 const template = _.template(baseTemplate)
-const App = require('./app/App').default
+const App = require('./app').default
 
 const server = express()
 
